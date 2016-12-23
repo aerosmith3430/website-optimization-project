@@ -505,6 +505,7 @@ function updatePositions() {
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
+  requestAnimationFrame(updatePositions);
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
   window.performance.mark("mark_end_frame");
@@ -515,6 +516,7 @@ function updatePositions() {
   }
 }
 
+requestAnimationFrame(updatePositions);
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
