@@ -452,9 +452,9 @@ var resizePizzas = function(size) {
   // Removed DOM selector from for loop
   function changePizzaSizes(size) {
     var randomPizzaContainer = document.getElementsByClassName("randomPizzaContainer");
-    var dx = determineDx(randomPizzaContainer[i], size);
-    var newwidth = (randomPizzaContainer[i].offsetWidth + dx) + 'px';
-    for (var i = 0; i < randomPizzaContainer.length; i++) {      
+    for (var i = 0; i < randomPizzaContainer.length; i++) {
+      var dx = determineDx(randomPizzaContainer[i], size);
+      var newwidth = (randomPizzaContainer[i].offsetWidth + dx) + 'px';    
       randomPizzaContainer[i].style.width = newwidth;
     }
   }
