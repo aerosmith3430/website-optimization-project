@@ -404,16 +404,15 @@ var resizePizzas = function(size) {
 
   // Changes the value for the size of the pizza above the slider
   function changeSliderLabel(size) {
-    var pizzaSize = document.getElementById("pizzaSize"); // moved DOM selector out of switch statement
     switch(size) {
       case "1":
-        pizzaSize.innerHTML = "Small";
+        document.getElementById("pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        pizzaSize.innerHTML = "Medium";
+        document.getElementById("pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        pizzaSize.innerHTML = "Large";
+        document.getElementById("pizzaSize").innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -423,39 +422,25 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
 
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  function determineDx (elem, size) {
-    var oldWidth = elem.offsetWidth;
-    var windowWidth = document.getElementById("randomPizzas").offsetWidth;
-    var oldSize = oldWidth / windowWidth;
-
-    // Changes the slider value to a percent width
-    function sizeSwitcher (size) {
-      switch(size) {
-        case "1":
-          return 0.25;
-        case "2":
-          return 0.3333;
-        case "3":
-          return 0.5;
-        default:
-          console.log("bug in sizeSwitcher");
-      }
+  function changePizzaSizes(size) {
+    switch(size) {
+      case "1":
+        newWidth = 25;
+        break;
+      case "2":
+        newWidth = 33.3;
+        break;
+      case "3":
+        newWidth = 50;
+        break;
+      default:
+        console.log("bug in changePizzaSizes");
     }
 
-    var newSize = sizeSwitcher(size);
-    var dx = (newSize - oldSize) * windowWidth;
+    var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
 
-    return dx;
-  }
-
-  // Iterates through pizza elements on the page and changes their widths
-  // Removed DOM selector from for loop
-  function changePizzaSizes(size) {
-    var randomPizzaContainer = document.getElementsByClassName("randomPizzaContainer");
-    var dx = determineDx(randomPizzaContainer[i], size);
-    var newwidth = (randomPizzaContainer[i].offsetWidth + dx) + 'px';
-    for (var i = 0; i < randomPizzaContainer.length; i++) {         
-      randomPizzaContainer[i].style.width = newwidth;
+    for (var i = 0; i < randomPizzas.length; i++) {
+      randomPizzas[i].style.width = newWidth + "%";
     }
   }
 
@@ -531,7 +516,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   var movingPizzas1 = document.getElementById("movingPizzas1"); // moved DOM selector out of for loop
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 20; i++) { // changed max number of pizzas to 20
     elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
