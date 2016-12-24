@@ -1,3 +1,5 @@
+This project is hosted at [https://aerosmith3430.github.io/website-optimization-project](https://aerosmith3430.github.io/website-optimization-project).
+
 ## Website Performance Optimization portfolio project
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
@@ -54,11 +56,19 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 * <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
 * <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
 
-List of changes made
-Added description and author content
-Commented out Google Font link tag
-Added media attribute to print CSS tag
-Removed CSS link tag and inlined the minified CSS in a style tag at the bottom of the index.HTML file
-Moved script tags to the bottom of the index.HTML file
-Added async attribute to script tags
-Changed pizzeria.jpg file to PNG file
+List of changes made to index.html
+* Added description and author content
+* Commented out Google Font link tag
+* Added media attribute to print CSS tag
+* Removed CSS link tag and inlined the minified CSS in a style tag at the bottom of the index.HTML file
+* Moved script tags to the bottom of the index.HTML file
+* Added async attribute to script tags
+* Changed pizzeria.jpg file to PNG file and reduced size
+
+List of changes made to views/css/style.css
+* Added will-change: transform to .mover class on line 36
+
+Changes made to views/js/main.js
+* All changes were made to resizePizzas and updatePositions starting at line 401 and are listed as comments in the file. 
+* DOM selectors were removed from for loops so that they are only accessed once and not every time the for loop runs.
+* When class names or ID's were accessed, the more specific getElementBy selector was used.

@@ -403,6 +403,7 @@ var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
   // Changes the value for the size of the pizza above the slider
+  // Changed DOM selector to getElementById
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
@@ -437,6 +438,7 @@ var resizePizzas = function(size) {
         console.log("bug in changePizzaSizes");
     }
 
+    // Moved DOM selector out of for loop and changed to getElementsByClassName
     var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
 
     for (var i = 0; i < randomPizzas.length; i++) {
@@ -456,7 +458,8 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-var pizzasDiv = document.getElementById("randomPizzas"); // moved variable out of for loop
+// Changed DOM selector to getElementById and moved out of for loop
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {  
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
@@ -486,7 +489,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // Moves the sliding background pizzas based on scroll position
 var items = document.getElementsByClassName("mover"); // changed DOM selector and moved it out of function
-var scrollTop = (document.body.scrollTop) / 1250;
+var scrollTop = (document.body.scrollTop) / 1250; // moved out of function so it only calculates once
 
 function updatePositions() {
   frame++;
@@ -515,7 +518,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var elem;
   var cols = 8;
   var s = 256;
-  var movingPizzas1 = document.getElementById("movingPizzas1"); // moved DOM selector out of for loop
+  // Changed DOM selector to getElementById and moved out of for loop
+  var movingPizzas1 = document.getElementById("movingPizzas1");
   for (var i = 0; i < 200; i++) { 
     elem = document.createElement('img');
     elem.className = 'mover';
