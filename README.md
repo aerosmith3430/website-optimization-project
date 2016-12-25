@@ -1,4 +1,6 @@
-This project is hosted at [https://aerosmith3430.github.io/website-optimization-project](https://aerosmith3430.github.io/website-optimization-project).
+## Steps needed to run this application
+
+To run this application, make sure you are connected to the internet and click [here](https://aerosmith3430.github.io/website-optimization-project).  This will open up index.html in your browser.  You can navigate to the rest of the pages by clicking the links in the browser.  
 
 ## Website Performance Optimization portfolio project
 
