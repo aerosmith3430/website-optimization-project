@@ -490,7 +490,7 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
   
-  var scrollTop = document.body.scrollTop;
+  var scrollTop = document.body.scrollTop / 1250;
 
   var i;
 
