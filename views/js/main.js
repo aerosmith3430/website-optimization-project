@@ -440,8 +440,9 @@ var resizePizzas = function(size) {
 
     // Moved DOM selector out of for loop and changed to getElementsByClassName
     var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
+    var ramdomPizzasLength = randomPizzas.length;
 
-    for (var i = 0; i < randomPizzas.length; i++) {
+    for (var i = 0; i < randomPizzasLength; i++) {
       randomPizzas[i].style.width = newWidth + "%";
     }
   }
@@ -487,19 +488,23 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
-// Moves the sliding background pizzas based on scroll position
+
 var items = document.getElementsByClassName("mover"); // changed DOM selector and moved it out of function
 
+// Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
   
-  var scrollTop = document.body.scrollTop;
+  // Moved variables out of for loop to improve performance
+  var scrollTop = document.body.scrollTop / 1250;
 
-  var i;
+  var phase;
 
-  for (i = 0; i < items.length; i++) {
-    var phase = Math.sin(scrollTop + (i % 5));
+  var itemsLength = items.length;
+
+  for (var i = 0; i < itemsLength; i++) {
+    phase = Math.sin(scrollTop + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -522,8 +527,11 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   var numOfCols = Math.ceil(window.innerWidth / s);
+  console.log(numofCols);
   var numOfRows = Math.ceil(window.innerHeight / s);
+  console.log(numOfRows);
   var numOfPizzas = numOfCols * numOfRows;
+  console.log(numOfPizzas);
   // Changed DOM selector to getElementById and moved out of for loop
   var movingPizzas1 = document.getElementById("movingPizzas1");
   for (var i = 0; i < numOfPizzas; i++) { 
