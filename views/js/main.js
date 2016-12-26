@@ -437,7 +437,7 @@ var resizePizzas = function(size) {
     // Moved DOM selector out of for loop and changed to getElementsByClassName
     var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
 
-    for (var i = 0; i < randomPizzas.length; i++) {
+    for (var i = 0; len = randomPizzas.length; i < len; i++) {
       randomPizzas[i].style.width = newWidth + "%";
     }
   }
