@@ -1,16 +1,12 @@
 /*
 Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
 jank-free at 60 frames per second.
-
 There are two major issues in this code that lead to sub-60fps performance. Can
 you spot and fix both?
-
-
 Built into the code, you'll find a few instances of the User Timing API
 (window.performance), which will be console.log()ing frame rate data into the
 browser console. To learn more about User Timing API, check out:
 http://www.html5rocks.com/en/tutorials/webperformance/usertiming/
-
 Creator:
 Cameron Pittman, Udacity Course Developer
 cameron *at* udacity *dot* com
@@ -440,9 +436,8 @@ var resizePizzas = function(size) {
 
     // Moved DOM selector out of for loop and changed to getElementsByClassName
     var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
-    var ramdomPizzasLength = randomPizzas.length;
 
-    for (var i = 0; i < randomPizzasLength; i++) {
+    for (var i = 0; i < randomPizzas.length; i++) {
       randomPizzas[i].style.width = newWidth + "%";
     }
   }
@@ -489,19 +484,18 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // Moves the sliding background pizzas based on scroll position
+var items = document.getElementsByClassName("mover"); // changed DOM selector and moved it out of function
+
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
   
-  // Moved variables out of for loop to improve performance
-  var items = document.getElementsByClassName("mover"); // changed DOM selector
+  var scrollTop = document.body.scrollTop;
 
-  var scrollTop = document.body.scrollTop / 1250;
+  var i;
 
-  console.log(scrollTop);
-
-  for (var i = 0; len = items.length; i < len; i++) {
-    var phase = Math.sin(scrollTop + i % 5);
+  for (i = 0; i < items.length; i++) {
+    var phase = Math.sin(scrollTop + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -524,11 +518,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   var numOfCols = Math.ceil(window.innerWidth / s);
-  console.log(numofCols);
   var numOfRows = Math.ceil(window.innerHeight / s);
-  console.log(numOfRows);
   var numOfPizzas = numOfCols * numOfRows;
-  console.log(numOfPizzas);
   // Changed DOM selector to getElementById and moved out of for loop
   var movingPizzas1 = document.getElementById("movingPizzas1");
   for (var i = 0; i < numOfPizzas; i++) { 
