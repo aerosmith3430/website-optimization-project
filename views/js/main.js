@@ -437,7 +437,7 @@ var resizePizzas = function(size) {
     // Moved DOM selector out of for loop and changed to getElementsByClassName
     var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
 
-    for (var i = 0; len = randomPizzas.length; i < len; i++) {
+    for (var i = 0; i < randomPizzas.length; i++) {
       randomPizzas[i].style.width = newWidth + "%";
     }
   }
@@ -490,7 +490,7 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
   
-  var scrollTop = document.body.scrollTop / 1250;
+  var scrollTop = document.body.scrollTop;
 
   var i;
 
