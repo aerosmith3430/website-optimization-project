@@ -437,7 +437,7 @@ var resizePizzas = function(size) {
     // Moved DOM selector out of for loop and changed to getElementsByClassName
     var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
 
-    for (var i = 0; len = randomPizzas.length; i < len; i++) {
+    for (var i = 0; i < randomPizzas.length; i++) {
       randomPizzas[i].style.width = newWidth + "%";
     }
   }
@@ -490,7 +490,7 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
   
-  var scrollTop = document.body.scrollTop;
+  var scrollTop = document.body.scrollTop / 1250;
 
   var i;
 
@@ -518,8 +518,11 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   var numOfCols = Math.ceil(window.innerWidth / s);
+  console.log(numOfCols);
   var numOfRows = Math.ceil(window.innerHeight / s);
+  console.log(numOfRows);
   var numOfPizzas = numOfCols * numOfRows;
+  console.log(numOfPizzas);
   // Changed DOM selector to getElementById and moved out of for loop
   var movingPizzas1 = document.getElementById("movingPizzas1");
   for (var i = 0; i < numOfPizzas; i++) { 
