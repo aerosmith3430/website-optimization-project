@@ -517,12 +517,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var elem;
   var cols = 8;
   var s = 256;
-  var numOfCols = Math.ceil(window.innerWidth / s);
-  console.log(numOfCols);
-  var numOfRows = Math.ceil(window.innerHeight / s);
-  console.log(numOfRows);
+  var numOfCols = Math.ceil(window.innerWidth / s + 1);
+  var numOfRows = Math.ceil(window.innerHeight / s + 1);
   var numOfPizzas = numOfCols * numOfRows;
-  console.log(numOfPizzas);
   // Changed DOM selector to getElementById and moved out of for loop
   var movingPizzas1 = document.getElementById("movingPizzas1");
   for (var i = 0; i < numOfPizzas; i++) { 
