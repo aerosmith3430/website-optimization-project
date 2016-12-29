@@ -517,6 +517,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var elem;
   var cols = 8;
   var s = 256;
+  // Calculating rows and columns based on browser size
   var numOfCols = Math.ceil(window.innerWidth / s + 1);
   var numOfRows = Math.ceil(window.innerHeight / s + 1);
   var numOfPizzas = numOfCols * numOfRows;
